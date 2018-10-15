@@ -18,6 +18,7 @@ public class TeamLogoManager : MonoBehaviour {
         {
             m_TeamLogo.alpha = 0f;
         })
+        .AppendInterval(m_fadeTime / 2f)
         .Append(m_TeamLogo.DOFade(1f, m_fadeTime))
         .AppendInterval(m_fadeTime / 2f)
         .Append(m_TeamLogo.DOFade(0f, m_fadeTime))
