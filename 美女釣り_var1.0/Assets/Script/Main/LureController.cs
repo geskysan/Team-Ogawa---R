@@ -7,7 +7,7 @@ public class LureController : MonoBehaviour {
     [SerializeField]
     private GameObject m_lureObj;
 
-    // タップ時の開始座標
+    // タップ座標
     private Vector2 m_tapPos;
 
     // Use this for initialization
@@ -28,9 +28,9 @@ public class LureController : MonoBehaviour {
         {
             // タップした位置
             m_tapPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-        }
 
-        // Lureの位置をクリック地点に移動
-        m_lureObj.transform.localPosition = new Vector3(m_tapPos.x - (Screen.width / 2), m_tapPos.y - (Screen.height / 2), 0f);
+            // Lureの位置をクリック地点に移動
+            m_lureObj.transform.localPosition = new Vector3(m_tapPos.x - (Screen.width / 2), m_tapPos.y - (Screen.height / 2), 0f);
+        }
     }
 }
