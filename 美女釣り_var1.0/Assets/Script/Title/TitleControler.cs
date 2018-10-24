@@ -38,8 +38,8 @@ public class TitleControler : MonoBehaviour {
         m_titleLogo.transform.DORotate(new Vector3(0.0f, 0.0f, 10.0f), 1.5f).SetLoops(-1, LoopType.Yoyo);
 
         });
-        // SoundScript.Instance.PlayBGM(SoundNameData.BGM_TITLE);
-        m_tapLogo.DOFade(0.0f, this.DurationSeconds).SetEase(this.EaseType).SetLoops(-1, LoopType.Yoyo);
+        SoundScript.Instance.PlayBGM(SoundNameData.BGM_TITLE);
+        m_tapLogo.DOFade(0.5f, this.DurationSeconds).SetEase(this.EaseType).SetLoops(-1, LoopType.Yoyo);
 }
 
 
