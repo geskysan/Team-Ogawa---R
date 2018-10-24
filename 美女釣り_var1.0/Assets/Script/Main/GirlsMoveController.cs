@@ -6,14 +6,17 @@ public class GirlsMoveController : MonoBehaviour {
 
     [SerializeField] float m_speed;
 
-    private void Awake()
-    {
-
-    }
-
     // Use this for initialization
     void Start() {
 
+        float random_X, random_Y;
+
+        random_X = Random.Range(0f, 1f);
+        random_Y = Random.Range(0f, 1f);
+
+        var randomForce = new Vector2(random_X, random_Y);
+
+        this.gameObject.GetComponent<Rigidbody2D>().AddForce(randomForce, ForceMode2D.Force);
     }
 
 	// Update is called once per frame
@@ -21,23 +24,8 @@ public class GirlsMoveController : MonoBehaviour {
 
     }
 
-    /// <summary>
-    /// 美女が画面内を縦横無尽に動き回る
-    /// </summary>
-    /// <param name="direction">方向転換の方向</param>
-    void BijoMove(float direction)
+    private void OnCollisionStay2D(Collision2D collision)
     {
 
-    }
-
-    public void OnCollitionHit()
-    {
-        var random = 0;
-
-        // ランダムな値の角度を入れる
-        random = Random.Range(0, 360);
-
-        // 取得した角度に方向転換
-        BijoMove(random);
     }
 }
