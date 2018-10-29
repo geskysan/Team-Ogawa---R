@@ -32,37 +32,48 @@ public class StageNumberSeting : MonoBehaviour {
 
     private void Start()
     {
-        switch(m_SelectType)
+        for (int i = 0; i < m_stageImage.Length; i++)
         {
-            case SELECTTYPE.Order:
-                for (int i = 0; i < m_stageImage.Length; i++)
-                {
-                    if (m_stage == (STAGE)i)
-                    {
-                        m_background.GetComponent<Image>().sprite = m_stageImage[i];
-                        Instantiate(particle[i]);
-                        particle[i].Play();
-                        break;
-                    }
-                }
-
-            case SELECTTYPE.Random:
-                var random = 0;
-                random = Random.Range(0, m_stageImage.Length);
-                for (int i = 0; i < m_stageImage.Length; i++)
-                {
-                    if (random == i)
-                    {
-                        m_background.GetComponent<Image>().sprite = m_stageImage[i];
-                        Instantiate(particle[i]);
-                        particle[i].Play();
-                        break;
-                    }
-                }
-
-            default:
+            if (m_stage == (STAGE)i)
+            {
+                m_background.GetComponent<Image>().sprite = m_stageImage[i];
+                Instantiate(particle[i]);
+                particle[i].Play();
                 break;
+            }
         }
+
+        //switch (m_SelectType)
+        //{
+        //    case SELECTTYPE.Order:
+        //        for (int i = 0; i < m_stageImage.Length; i++)
+        //        {
+        //            if (m_stage == (STAGE)i)
+        //            {
+        //                m_background.GetComponent<Image>().sprite = m_stageImage[i];
+        //                Instantiate(particle[i]);
+        //                particle[i].Play();
+        //                break;
+        //            }
+        //        }
+
+        //    case SELECTTYPE.Random:
+        //        var random = 0;
+        //        random = Random.Range(0, m_stageImage.Length);
+        //        for (int i = 0; i < m_stageImage.Length; i++)
+        //        {
+        //            if (random == i)
+        //            {
+        //                m_background.GetComponent<Image>().sprite = m_stageImage[i];
+        //                Instantiate(particle[i]);
+        //                particle[i].Play();
+        //                break;
+        //            }
+        //        }
+
+        //    default:
+        //        break;
+        //}
 
 
     }
