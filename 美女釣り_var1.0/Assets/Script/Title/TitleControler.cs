@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 public class TitleControler : MonoBehaviour {
 
@@ -11,6 +15,8 @@ public class TitleControler : MonoBehaviour {
     CanvasGroup m_tapLogo;
     [SerializeField]
     CanvasGroup m_titleLogo;
+    [SerializeField]
+    GameObject NewPlayer;
 
     [SerializeField] float m_scaleSize = 1.2f;
     [SerializeField] float m_scaleTime;
@@ -18,6 +24,17 @@ public class TitleControler : MonoBehaviour {
 
     [SerializeField] private float DurationSeconds;
     [SerializeField] private Ease EaseType;
+
+    InputField inputField;
+
+    string SERVER = "153.126.208.136";
+    string DATABASE = "bjo";
+    string USERID = "player";
+    string PORT = "3306";
+    string PASSWORD = "Player_1";
+
+    string username;
+   // string TABLENAME = "user";
 
     // Use this for initialization
     void Start()
@@ -38,9 +55,45 @@ public class TitleControler : MonoBehaviour {
         m_titleLogo.transform.DORotate(new Vector3(0.0f, 0.0f, 10.0f), 1.5f).SetLoops(-1, LoopType.Yoyo);
 
         });
+
         SoundScript.Instance.PlayBGM(SoundNameData.BGM_TITLE);
         m_tapLogo.DOFade(0.5f, this.DurationSeconds).SetEase(this.EaseType).SetLoops(-1, LoopType.Yoyo);
-}
+
+        string connCmd =
+                  "server=" + SERVER + ";" +
+                  "database=" + DATABASE + ";" +
+                  "userid=" + USERID + ";" +
+                  "port=" + PORT + ";" +
+                  "password=" + PASSWORD;
+
+        MySqlConnection conn = new MySqlConnection(connCmd);
+
+        try
+        {
+            Debug.Log("MySQLと接続中...");
+            conn.Open();
+
+            string sql = "SELECT MAX( userid ) FROM user;";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                object userid = rdr[0];
+                Debug.Log(rdr[0]);
+          
+            }
+            rdr.Close();
+
+        }
+        catch (Exception ex)
+        {
+            Debug.Log(ex.ToString());
+        }
+        conn.Close();
+        Debug.Log("接続を終了しました");
+
+    }
 
 
 
@@ -48,8 +101,62 @@ public class TitleControler : MonoBehaviour {
 void Update () {
         if(Input.GetMouseButtonDown(0))
         {
-            SceneNavigator.Instance.Change("menu");
+            if (!PlayerPrefs.HasKey("Init"))
+            {
+                NewPlayer.gameObject.SetActive(true);
+            }
+            if (PlayerPrefs.HasKey("Init"))
+            {
+                SceneNavigator.Instance.Change("menu");
+            }
         }
 	}
+
+   public void SaveDataInitialize()
+    {
+        PlayerPrefs.SetInt("Init", 1); // ”Init”のキーをint型の値(1)で保存
+    }
+
+    public void Decision()
+    {
+        string connCmd =
+                "server=" + SERVER + ";" +
+                "database=" + DATABASE + ";" +
+                "userid=" + USERID + ";" +
+                "port=" + PORT + ";" +
+                "password=" + PASSWORD;
+
+        MySqlConnection conn = new MySqlConnection(connCmd);
+
+        try
+        {
+            Debug.Log("MySQLと接続中...");
+            conn.Open();
+
+            string sql = "INSERT INTO ;";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                object userid = rdr[0];
+                Debug.Log(rdr[0]);
+
+            }
+            rdr.Close();
+
+        }
+        catch (Exception ex)
+        {
+            Debug.Log(ex.ToString());
+        }
+        conn.Close();
+        Debug.Log("接続を終了しました");
+    }
+    public void FieldInput()
+    {
+        username = inputField.text;
+        Debug.Log(username);
+    }
 }
 
