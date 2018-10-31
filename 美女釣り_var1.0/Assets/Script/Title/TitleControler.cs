@@ -25,6 +25,7 @@ public class TitleControler : MonoBehaviour {
     [SerializeField] private float DurationSeconds;
     [SerializeField] private Ease EaseType;
 
+    [SerializeField]
     InputField inputField;
 
     string SERVER = "153.126.208.136";
@@ -34,6 +35,7 @@ public class TitleControler : MonoBehaviour {
     string PASSWORD = "Player_1";
 
     string username;
+    object userid;
    // string TABLENAME = "user";
 
     // Use this for initialization
@@ -79,7 +81,7 @@ public class TitleControler : MonoBehaviour {
 
             while (rdr.Read())
             {
-                object userid = rdr[0];
+                userid = rdr[0];
                 Debug.Log(rdr[0]);
           
             }
@@ -105,10 +107,10 @@ void Update () {
             {
                 NewPlayer.gameObject.SetActive(true);
             }
-            if (PlayerPrefs.HasKey("Init"))
-            {
-                SceneNavigator.Instance.Change("menu");
-            }
+            //if (PlayerPrefs.HasKey("Init"))
+            //{
+            //    SceneNavigator.Instance.Change("menu");
+            //}
         }
 	}
 
@@ -119,6 +121,8 @@ void Update () {
 
     public void Decision()
     {
+        int userid_mysql = (int)userid;
+        Debug.Log(userid_mysql);
         string connCmd =
                 "server=" + SERVER + ";" +
                 "database=" + DATABASE + ";" +
@@ -133,18 +137,10 @@ void Update () {
             Debug.Log("MySQLと接続中...");
             conn.Open();
 
-            string sql = "INSERT INTO ;";
+            string sql = "INSERT INTO user (userid,username,highscore) values (" + userid_mysql + "+1," +"'" +username+"'" + ",1000);";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-            MySqlDataReader rdr = cmd.ExecuteReader();
-
-            while (rdr.Read())
-            {
-                object userid = rdr[0];
-                Debug.Log(rdr[0]);
-
-            }
-            rdr.Close();
-
+            Debug.Log(sql);
+            cmd.ExecuteNonQuery();
         }
         catch (Exception ex)
         {
