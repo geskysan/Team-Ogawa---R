@@ -10,12 +10,8 @@ public class TimeManager : MonoBehaviour {
     [SerializeField] Text timeText;
 
     [SerializeField] CanvasGroup m_TimeUp;
+    [SerializeField] float[] m_movePosY;
     [SerializeField] float[] m_MoveTime;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -35,11 +31,14 @@ public class TimeManager : MonoBehaviour {
         timeText.text = time.ToString("00");
     }
 
+    /// <summary>
+    /// タイムアップ表示
+    /// </summary>
     void TimeUp()
     {
         Sequence seq = DOTween.Sequence()
-            .Append(m_TimeUp.transform.DOLocalMoveY(0f, m_MoveTime[0]))
+            .Append(m_TimeUp.transform.DOLocalMoveY(m_movePosY[0], m_MoveTime[0]))
             .AppendInterval(m_MoveTime[1])
-            .Append(m_TimeUp.transform.DOLocalMoveY(1280f, m_MoveTime[0]));
+            .Append(m_TimeUp.transform.DOLocalMoveY(m_movePosY[1], m_MoveTime[0]));
     }
 }

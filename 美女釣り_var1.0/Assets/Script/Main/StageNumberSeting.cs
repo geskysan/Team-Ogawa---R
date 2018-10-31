@@ -37,8 +37,13 @@ public class StageNumberSeting : MonoBehaviour {
             if (m_stage == (STAGE)i)
             {
                 m_background.GetComponent<Image>().sprite = m_stageImage[i];
-                Instantiate(particle[i]);
-                particle[i].Play();
+
+                if(particle[i] != null)
+                {
+                    Instantiate(particle[i]);
+                    particle[i].Play();
+                }
+
                 break;
             }
         }
