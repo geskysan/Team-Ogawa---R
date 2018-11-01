@@ -2,7 +2,6 @@
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Collider2D))]
-
 public class TapCircle : MonoBehaviour
 {
     SpriteRenderer mSpriteRenderer;
