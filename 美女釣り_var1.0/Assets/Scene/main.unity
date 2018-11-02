@@ -1184,7 +1184,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 2a3f35041106e8f4a81489967c261b44, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ee2d9bc6b0a4ff34ca70bbdcd0af38ab, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1385,7 +1385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SelectType: 0
-  m_stage: 3
+  m_stage: 6
   m_stageImage:
   - {fileID: 21300000, guid: 5f852a4b165c66948a0208375e45d1c1, type: 3}
   - {fileID: 21300000, guid: ee2d9bc6b0a4ff34ca70bbdcd0af38ab, type: 3}
@@ -1396,13 +1396,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 18cdeecef7fe08241b4463199e93e706, type: 3}
   m_background: {fileID: 981703095}
   particle:
+  - {fileID: 198476050113273100, guid: c532ba2a344665847ac2a8da8fb1cc6b, type: 2}
+  - {fileID: 0}
   - {fileID: 198931749498524528, guid: 980d4139f4ef57346b8ffe474291fbd1, type: 2}
-  - {fileID: 198931749498524528, guid: 980d4139f4ef57346b8ffe474291fbd1, type: 2}
-  - {fileID: 198931749498524528, guid: 980d4139f4ef57346b8ffe474291fbd1, type: 2}
-  - {fileID: 198931749498524528, guid: 980d4139f4ef57346b8ffe474291fbd1, type: 2}
-  - {fileID: 198931749498524528, guid: 980d4139f4ef57346b8ffe474291fbd1, type: 2}
-  - {fileID: 198931749498524528, guid: 980d4139f4ef57346b8ffe474291fbd1, type: 2}
-  - {fileID: 198931749498524528, guid: 980d4139f4ef57346b8ffe474291fbd1, type: 2}
+  - {fileID: 198108311436549524, guid: f10bf470464229047a959b717d1858a2, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &1079916991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1452,9 +1452,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee3a4cbb1007144280fe66dba79e596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 10
+  time: 3
   timeText: {fileID: 1041711938}
   m_TimeUp: {fileID: 203376926}
+  m_movePosY:
+  - 0
+  - 1280
   m_MoveTime:
   - 1
   - 1
@@ -2536,7 +2539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   girlsManager: {fileID: 1249734864}
   scoreManager: {fileID: 1079916991}
-  m_GirlScore: f4010000dc05000088130000
+  m_GirlScore: fa000000e8030000c4090000
 --- !u!58 &1994683237
 CircleCollider2D:
   m_ObjectHideFlags: 0
