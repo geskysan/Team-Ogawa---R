@@ -12,11 +12,11 @@ using MySql.Data.MySqlClient;
 public class TitleControler : MonoBehaviour {
 
     [SerializeField]
-    CanvasGroup m_tapLogo;
+    CanvasGroup m_tapLogo; //ロゴ
     [SerializeField]
-    CanvasGroup m_titleLogo;
+    CanvasGroup m_titleLogo; //タイトルロゴ
     [SerializeField]
-    GameObject NewPlayer;
+    GameObject NewPlayer; //そんまんま
 
     [SerializeField] float m_scaleSize = 1.2f;
     [SerializeField] float m_scaleTime;
@@ -28,7 +28,7 @@ public class TitleControler : MonoBehaviour {
     [SerializeField]
     InputField inputField;
 
-    string SERVER = "153.126.208.136";
+    string SERVER = "153.126.208.136"; //さくらVPSに接続してる
     string DATABASE = "bjo";
     string USERID = "player";
     string PORT = "3306";
@@ -41,6 +41,7 @@ public class TitleControler : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        //タイトルの動き
         Sequence seq = DOTween.Sequence()
             .OnStart(() =>
             {
@@ -69,7 +70,7 @@ public class TitleControler : MonoBehaviour {
                   "password=" + PASSWORD;
 
         MySqlConnection conn = new MySqlConnection(connCmd);
-
+        //ここUSERIDを取ってる
         try
         {
             Debug.Log("MySQLと接続中...");
@@ -107,18 +108,14 @@ void Update () {
             {
                 NewPlayer.gameObject.SetActive(true);
             }
-            //if (PlayerPrefs.HasKey("Init"))
-            //{
-            //    SceneNavigator.Instance.Change("menu");
-            //}
+            if (PlayerPrefs.HasKey("Init"))
+            {
+                SceneNavigator.Instance.Change("menu");
+            }
         }
-	}
-
-   public void SaveDataInitialize()
-    {
-        PlayerPrefs.SetInt("Init", 1); // ”Init”のキーをint型の値(1)で保存
     }
 
+    //ユーザー作るときの奴
     public void Decision()
     {
         int userid_mysql = (int)userid;
@@ -137,7 +134,7 @@ void Update () {
             Debug.Log("MySQLと接続中...");
             conn.Open();
 
-            string sql = "INSERT INTO user (userid,username,highscore) values (" + userid_mysql + "+1," +"'" +username+"'" + ",1000);";
+            string sql = "INSERT INTO user (userid,username,highscore) values (" + userid_mysql + "+1," +"'" +username+"'" + ",0);";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             Debug.Log(sql);
             cmd.ExecuteNonQuery();
@@ -147,8 +144,12 @@ void Update () {
             Debug.Log(ex.ToString());
         }
         conn.Close();
+
+        PlayerPrefs.SetInt("Init", 1); // ”Init”のキーをint型の値(1)で保存
+
         Debug.Log("接続を終了しました");
     }
+    //名前入力
     public void FieldInput()
     {
         username = inputField.text;
