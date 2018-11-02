@@ -9,7 +9,8 @@ using DG.Tweening;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
-public class TitleControler : MonoBehaviour {
+public class TitleControler : MonoBehaviour
+{
 
     [SerializeField]
     CanvasGroup m_tapLogo; //ロゴ
@@ -36,7 +37,7 @@ public class TitleControler : MonoBehaviour {
 
     string username;
     object userid;
-   // string TABLENAME = "user";
+    // string TABLENAME = "user";
 
     // Use this for initialization
     void Start()
@@ -55,7 +56,7 @@ public class TitleControler : MonoBehaviour {
         .Join(m_titleLogo.transform.DORotate(new Vector3(0.0f, 0.0f, -10.0f), 1.5f))
         .OnComplete(() =>
         {
-        m_titleLogo.transform.DORotate(new Vector3(0.0f, 0.0f, 10.0f), 1.5f).SetLoops(-1, LoopType.Yoyo);
+            m_titleLogo.transform.DORotate(new Vector3(0.0f, 0.0f, 10.0f), 1.5f).SetLoops(-1, LoopType.Yoyo);
 
         });
 
@@ -84,7 +85,7 @@ public class TitleControler : MonoBehaviour {
             {
                 userid = rdr[0];
                 Debug.Log(rdr[0]);
-          
+
             }
             rdr.Close();
 
@@ -100,9 +101,10 @@ public class TitleControler : MonoBehaviour {
 
 
 
-// Update is called once per frame
-void Update () {
-        if(Input.GetMouseButtonDown(0))
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
         {
             if (!PlayerPrefs.HasKey("Init"))
             {
@@ -134,7 +136,7 @@ void Update () {
             Debug.Log("MySQLと接続中...");
             conn.Open();
 
-            string sql = "INSERT INTO user (userid,username,highscore) values (" + userid_mysql + "+1," +"'" +username+"'" + ",0);";
+            string sql = "INSERT INTO user (userid,username,highscore) values (" + userid_mysql + "+1," + "'" + username + "'" + ",0);";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             Debug.Log(sql);
             cmd.ExecuteNonQuery();
