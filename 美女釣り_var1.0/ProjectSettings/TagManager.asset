@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Girls
+<<<<<<< HEAD
+=======
+  - Girl01
+  - Girl02
+  - Girl03
+>>>>>>> ogawa/最終形態
   layers:
   - Default
   - TransparentFX
@@ -14,10 +20,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Girls
+  - Wall
+  - Lure
+  - GirlManager
   - 
   - 
   - 
