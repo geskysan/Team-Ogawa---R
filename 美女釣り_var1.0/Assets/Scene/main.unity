@@ -1385,7 +1385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SelectType: 0
-  m_stage: 6
+  m_stage: 2
   m_stageImage:
   - {fileID: 21300000, guid: 5f852a4b165c66948a0208375e45d1c1, type: 3}
   - {fileID: 21300000, guid: ee2d9bc6b0a4ff34ca70bbdcd0af38ab, type: 3}
@@ -1452,12 +1452,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee3a4cbb1007144280fe66dba79e596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 3
+  time: 1
   timeText: {fileID: 1041711938}
   m_TimeUp: {fileID: 203376926}
   m_movePosY:
   - 0
-  - 1280
+  - -1280
   m_MoveTime:
   - 1
   - 1

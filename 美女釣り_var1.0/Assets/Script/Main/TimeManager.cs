@@ -15,6 +15,8 @@ public class TimeManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        var timeUp = false;
+
         time -= Time.deltaTime;
 
         if(time <= 10)
@@ -24,8 +26,9 @@ public class TimeManager : MonoBehaviour {
 
         if (time <= 0)
         {
+            timeUp = true;
             time = 0;
-            TimeUp();
+            TimeUp(timeUp);
         }
 
         timeText.text = time.ToString("00");
@@ -34,11 +37,18 @@ public class TimeManager : MonoBehaviour {
     /// <summary>
     /// タイムアップ表示
     /// </summary>
-    void TimeUp()
+    void TimeUp(bool timeUp)
     {
-        Sequence seq = DOTween.Sequence()
-            .Append(m_TimeUp.transform.DOLocalMoveY(m_movePosY[0], m_MoveTime[0]))
-            .AppendInterval(m_MoveTime[1])
-            .Append(m_TimeUp.transform.DOLocalMoveY(m_movePosY[1], m_MoveTime[0]));
+        var useFlag = false;
+
+        if(timeUp && !useFlag)
+        {
+            useFlag = true;
+
+            Sequence seq = DOTween.Sequence()
+                .Append(m_TimeUp.transform.DOLocalMoveY(m_movePosY[0], m_MoveTime[0]))
+                .AppendInterval(m_MoveTime[1])
+                .Append(m_TimeUp.transform.DOLocalMoveY(m_movePosY[1], m_MoveTime[0]));
+        }
     }
 }
