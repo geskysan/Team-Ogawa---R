@@ -110,10 +110,10 @@ public class TitleControler : MonoBehaviour
             {
                 NewPlayer.gameObject.SetActive(true);
             }
-            if (PlayerPrefs.HasKey("Init"))
-            {
-                SceneNavigator.Instance.Change("menu");
-            }
+            //if (PlayerPrefs.HasKey("Init"))
+            //{
+            //    SceneNavigator.Instance.Change("menu");
+            //}
         }
     }
 
@@ -148,6 +148,7 @@ public class TitleControler : MonoBehaviour
         conn.Close();
 
         PlayerPrefs.SetInt("Init", 1); // ”Init”のキーをint型の値(1)で保存
+        PlayerPrefs.SetInt("user_id", userid_mysql + 1);
 
         Debug.Log("接続を終了しました");
     }
