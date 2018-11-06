@@ -190,7 +190,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1550224909}
-        m_MethodName: SaveDataInitialize
+        m_MethodName: Decision
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4723,7 +4723,7 @@ MonoBehaviour:
   m_titleFadeTime: 0
   DurationSeconds: 1
   EaseType: 32
-  inputField: {fileID: 0}
+  inputField: {fileID: 500945592}
 --- !u!1 &1624348977
 GameObject:
   m_ObjectHideFlags: 0
