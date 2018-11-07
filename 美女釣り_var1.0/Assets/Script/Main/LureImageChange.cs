@@ -21,11 +21,11 @@ public class LureImageChange : MonoBehaviour {
         Cake,
     }
 
-    [SerializeField]
-    LURETUPE m_lureType;
+    [SerializeField] LURETUPE m_lureType;
 
-    [SerializeField]
-    Sprite[] m_lureImage;
+    [SerializeField] Sprite[] m_lureImage;
+
+    [SerializeField] GameObject[] obj;
 
     private void Start()
     {
@@ -33,7 +33,8 @@ public class LureImageChange : MonoBehaviour {
         {
             if (m_lureType == LURETUPE.cookie + i)
             {
-                this.gameObject.GetComponent<Image>().sprite = m_lureImage[i];
+                for (int j = 0; j < obj.Length; j++)
+                    obj[j].GetComponent<Image>().sprite = m_lureImage[i];
             }
         }
     }

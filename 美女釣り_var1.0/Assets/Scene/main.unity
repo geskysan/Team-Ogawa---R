@@ -1455,13 +1455,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   time: 1
   timeText: {fileID: 1041711938}
-  m_TimeUp: {fileID: 203376926}
-  m_movePosY:
+  timeUp: {fileID: 203376926}
+  m_timeUpPosY:
   - 0
-  - -1280
-  m_MoveTime:
-  - 1
-  - 1
+  - 1000
+  m_timeUpwaitTime: 0.5
 --- !u!114 &1079916995
 MonoBehaviour:
   m_ObjectHideFlags: 0
