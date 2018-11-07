@@ -13,7 +13,7 @@ public class TeamLogoManager : MonoBehaviour {
     // Use this for initialization
     void Start() {
 
-        //SoundScript.Instance.PlaySE(SoundNameData.SE_OGAWA, 0.7f);
+        SoundScript.Instance.PlaySE(SoundNameData.SE_OGAWA, 0.7f);
 
         Sequence seq = DOTween.Sequence();
 
@@ -27,13 +27,18 @@ public class TeamLogoManager : MonoBehaviour {
         .Append(m_TeamLogo.DOFade(0f, m_fadeTime))
         .OnComplete(() =>
         {
-            SceneNavigator.Instance.Change("title");
+            SceneChange();
         });
 
     }
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 
-    private void Awake()
+    void SceneChange()
     {
-        
+        SceneNavigator.Instance.Change("title");
     }
 }

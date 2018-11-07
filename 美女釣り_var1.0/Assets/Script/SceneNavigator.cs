@@ -8,6 +8,7 @@ using System;
 /// </summary>
 public class SceneNavigator : SingletonMonoBehaviour<SceneNavigator>
 {
+
     //フェード中か否か
     public bool IsFading
     {

@@ -9,8 +9,7 @@ using DG.Tweening;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 
-public class TitleControler : MonoBehaviour
-{
+public class TitleControler : MonoBehaviour {
 
     [SerializeField]
     CanvasGroup m_tapLogo; //ロゴ
@@ -28,6 +27,10 @@ public class TitleControler : MonoBehaviour
 
     [SerializeField]
     InputField inputField;
+    [SerializeField]
+    Text Nameinput;
+    [SerializeField]
+    GameObject tapsiteyo; //tap
 
     string SERVER = "153.126.208.136"; //さくらVPSに接続してる
     string DATABASE = "bjo";
@@ -37,7 +40,7 @@ public class TitleControler : MonoBehaviour
 
     string username;
     object userid;
-    // string TABLENAME = "user";
+   // string TABLENAME = "user";
 
     // Use this for initialization
     void Start()
@@ -56,7 +59,7 @@ public class TitleControler : MonoBehaviour
         .Join(m_titleLogo.transform.DORotate(new Vector3(0.0f, 0.0f, -10.0f), 1.5f))
         .OnComplete(() =>
         {
-            m_titleLogo.transform.DORotate(new Vector3(0.0f, 0.0f, 10.0f), 1.5f).SetLoops(-1, LoopType.Yoyo);
+        m_titleLogo.transform.DORotate(new Vector3(0.0f, 0.0f, 10.0f), 1.5f).SetLoops(-1, LoopType.Yoyo);
 
         });
 
@@ -85,7 +88,7 @@ public class TitleControler : MonoBehaviour
             {
                 userid = rdr[0];
                 Debug.Log(rdr[0]);
-
+          
             }
             rdr.Close();
 
@@ -101,10 +104,9 @@ public class TitleControler : MonoBehaviour
 
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
+// Update is called once per frame
+void Update () {
+        if(Input.GetMouseButtonDown(0))
         {
             if (!PlayerPrefs.HasKey("Init"))
             {
@@ -120,41 +122,59 @@ public class TitleControler : MonoBehaviour
     //ユーザー作るときの奴
     public void Decision()
     {
-        int userid_mysql = (int)userid;
-        Debug.Log(userid_mysql);
-        string connCmd =
-                "server=" + SERVER + ";" +
-                "database=" + DATABASE + ";" +
-                "userid=" + USERID + ";" +
-                "port=" + PORT + ";" +
-                "password=" + PASSWORD;
-
-        MySqlConnection conn = new MySqlConnection(connCmd);
-
-        try
+        //空白やNULLじゃなかったら登録する
+        if (!string.IsNullOrEmpty(username))
         {
-            Debug.Log("MySQLと接続中...");
-            conn.Open();
+            int userid_mysql = (int)userid;
+            Debug.Log(userid_mysql);
+            string connCmd =
+                    "server=" + SERVER + ";" +
+                    "database=" + DATABASE + ";" +
+                    "userid=" + USERID + ";" +
+                    "port=" + PORT + ";" +
+                    "password=" + PASSWORD;
 
-            string sql = "INSERT INTO user (userid,username,highscore) values (" + userid_mysql + "+1," + "'" + username + "'" + ",0);";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            Debug.Log(sql);
-            cmd.ExecuteNonQuery();
+            MySqlConnection conn = new MySqlConnection(connCmd);
+
+            try
+            {
+                Debug.Log("MySQLと接続中...");
+                conn.Open();
+
+                string sql = "INSERT INTO user (userid,username,highscore) values (" + userid_mysql + "+1," + "\'" + username + "\'" + ",0);";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                Debug.Log(sql);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Debug.Log(ex.ToString());
+            }
+            conn.Close();
+
+            PlayerPrefs.SetInt("Init", 1); // ”Init”のキーをint型の値(1)で保存
+            PlayerPrefs.SetInt("user_id", userid_mysql + 1); //userid保存
+
+            Debug.Log("接続を終了しました");
+
+            NewPlayer.gameObject.SetActive(false);
+            tapsiteyo.gameObject.SetActive(true);
         }
-        catch (Exception ex)
+        else
         {
-            Debug.Log(ex.ToString());
+            //空白やNULLだったら赤文字にする
+            Nameinput.color = new Color (255f, 0f, 0f);
         }
-        conn.Close();
-
-        PlayerPrefs.SetInt("Init", 1); // ”Init”のキーをint型の値(1)で保存
-
-        Debug.Log("接続を終了しました");
     }
     //名前入力
     public void FieldInput()
     {
         username = inputField.text;
+        //空白は許さん
+        if(inputField.text == " ")
+        {
+            inputField.text = "";
+        }
         Debug.Log(username);
     }
 }
