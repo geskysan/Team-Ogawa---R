@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GirlsManager : MonoBehaviour
 { 
@@ -12,9 +13,8 @@ public class GirlsManager : MonoBehaviour
 
     [SerializeField, Header("各女の子ゲット数")] int[] m_GirlCount;
 
-    [SerializeField] float[] m_ComboBonus;
-    [SerializeField] float comboBonus;
-    float m_comboResetTime;
+    [SerializeField] Text m_ComboText;
+    float m_comboTime;
     int m_ComboCount;
 
     // Use this for initialization
@@ -40,7 +40,16 @@ public class GirlsManager : MonoBehaviour
 
     private void Update()
     {
-        m_comboResetTime += 1f * Time.deltaTime;
+        // 10コンボ以上で文字色を変える
+        if (m_ComboCount >= 10)
+            m_ComboText.color = Color.red;
+        
+        else
+            m_ComboText.color = Color.black;
+
+        m_ComboText.text = m_ComboCount.ToString();
+
+        m_comboTime += 1f * Time.deltaTime;
     }
 
     /// <summary>
@@ -61,33 +70,39 @@ public class GirlsManager : MonoBehaviour
     /// <param name="girlTag"></param>
     public void GirlCounter(string girlTag)
     {
-        m_ComboCount++;
+        m_comboTime += 1 * Time.deltaTime;
+
+        // コンボ持続中
+        if (m_comboTime <= 3)
+        {
+            m_ComboCount++;
+            Debug.Log("コンボ成功");
+        }
+        // コンボが途切れた
+        else
+        {
+            m_comboTime = 0f;
+            m_ComboCount = 0;
+            Debug.Log("miss");
+        }
 
         Debug.Log("コンボ数 : " + m_ComboCount);
-        Debug.Log(m_comboResetTime);
-
-        // コンボが継続中なら
-        if (m_comboResetTime < 0.5f)
-        {
-            comboBonus = m_ComboBonus[0];
-        }
+        Debug.Log(m_comboTime);
 
         if (girlTag == "Girl01")
         {
-            scoreManager.m_Score += m_girlScore[0] * (int)comboBonus;
+            scoreManager.ScoreBonus(m_girlScore[0], m_ComboCount);
             m_GirlCount[0]++;
         }
         else if (girlTag == "Girl02")
         {
-            scoreManager.m_Score += m_girlScore[1] * (int)comboBonus;
+            scoreManager.ScoreBonus(m_girlScore[1], m_ComboCount);
             m_GirlCount[1]++;
         }
         else if (girlTag == "Girl03")
         {
-            scoreManager.m_Score += m_girlScore[2] * (int)comboBonus;
+            scoreManager.ScoreBonus(m_girlScore[2], m_ComboCount);
             m_GirlCount[2]++;
-        }
-
-        m_comboResetTime = 0f;       
+        }  
     }
 }
