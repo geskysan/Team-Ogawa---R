@@ -6,6 +6,9 @@ using DG.Tweening;
 
 public class TimeManager : MonoBehaviour {
 
+    [SerializeField] StartUpManager m_startUpManager;
+    [SerializeField] GameObject m_resultManager;
+
     [SerializeField] float time = 60f;
     [SerializeField] Text timeText;
 
@@ -20,20 +23,25 @@ public class TimeManager : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-        // タイム
-        time -= Time.deltaTime;
-
-        // 残り時間10秒で色変化
-        if(time <= 10)
+        if(m_startUpManager.m_OK)
         {
-            timeText.color = m_color;
-        }
+            // 残り時間が０秒なら通らない
+            if (time != 0)
+                time -= Time.deltaTime;
 
-        // 時間切れでタイムアップ表示
-        if (time <= 0)
-        {
-            time = 0;
-            TimeUpMove();
+            // 残り時間10秒で色変化
+            if (time <= 10)
+            {
+                timeText.color = m_color;
+            }
+
+            // 時間切れでタイムアップ表示
+            if (time <= 0)
+            {
+                time = 0;
+                if (!m_bTimeUp)
+                    TimeUpMove();
+            }
         }
 
         timeText.text = time.ToString("00");
@@ -44,16 +52,17 @@ public class TimeManager : MonoBehaviour {
     /// </summary>
     void TimeUpMove()
     {
-        if(!m_bTimeUp)
-        {
-            Sequence seq = DOTween.Sequence();
-            seq.Append(timeUp.transform.DOLocalMoveY(m_timeUpPosY[0], 1f))
-                .AppendInterval(m_timeUpwaitTime)
-                .Append(timeUp.transform.DOLocalMoveY(-m_timeUpPosY[1], 1f))
-                .OnComplete(() =>
-                {
-                    m_bTimeUp = true;
-                });
-        }
+        m_bTimeUp = true;
+
+        Sequence seq = DOTween.Sequence();
+        seq.Append(timeUp.transform.DOLocalMoveY(m_timeUpPosY[0], 1f))
+            .AppendInterval(m_timeUpwaitTime)
+            .Append(timeUp.transform.DOLocalMoveY(-m_timeUpPosY[1], 1f))
+            .OnComplete(() =>
+            {
+                m_bTimeUp = true;
+                m_resultManager.SetActive(true);
+            });
+
     }
 }

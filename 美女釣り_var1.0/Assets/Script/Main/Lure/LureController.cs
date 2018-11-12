@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class LureController : MonoBehaviour {
 
+    [SerializeField] StartUpManager m_startUpManager;
     [SerializeField] GameObject m_lureObj;
 
     // タップ座標
     private Vector2 m_tapPos;
-
-    // Use this for initialization
-    void Start () {
-
-	}
 	
 	// Update is called once per frame
 	void Update () {
-        Tap();
+        if (m_startUpManager.m_OK)
+            Tap();
     }
 
 

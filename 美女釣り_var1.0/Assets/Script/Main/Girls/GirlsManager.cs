@@ -11,7 +11,7 @@ public class GirlsManager : MonoBehaviour
     [SerializeField, Header("最大数")] byte maxGirl;
     [SerializeField, Header("女の子の獲得スコア")] int[] m_girlScore;
 
-    [SerializeField, Header("各女の子ゲット数")] int[] m_GirlCount;
+    [SerializeField, Header("各女の子ゲット数")] public int[] m_GirlCount;
 
     [SerializeField] Text m_ComboText;
     float m_comboTime;
@@ -19,6 +19,28 @@ public class GirlsManager : MonoBehaviour
 
     // Use this for initialization
     void Start()
+    {
+
+    }
+
+    private void Update()
+    {
+        // 10コンボ以上で文字色を変える
+        if (m_ComboCount >= 10)
+            m_ComboText.color = Color.red;
+        
+        else
+            m_ComboText.color = Color.black;
+
+        m_ComboText.text = m_ComboCount.ToString();
+
+        m_comboTime += 1f * Time.deltaTime;
+    }
+
+    /// <summary>
+    /// 女の子たちの初回生成
+    /// </summary>
+    public void GirlsStartUp()
     {
         // ランダムな方向に力を与える
         float random_X, random_Y;
@@ -36,20 +58,6 @@ public class GirlsManager : MonoBehaviour
 
             Instantiate(m_Girls[random]);
         }
-    }
-
-    private void Update()
-    {
-        // 10コンボ以上で文字色を変える
-        if (m_ComboCount >= 10)
-            m_ComboText.color = Color.red;
-        
-        else
-            m_ComboText.color = Color.black;
-
-        m_ComboText.text = m_ComboCount.ToString();
-
-        m_comboTime += 1f * Time.deltaTime;
     }
 
     /// <summary>
