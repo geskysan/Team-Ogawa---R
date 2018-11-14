@@ -53,6 +53,8 @@ public class TimeManager : MonoBehaviour {
     void TimeUpMove()
     {
         m_bTimeUp = true;
+        // 非操作状態に
+        m_startUpManager.m_OK = false;
 
         Sequence seq = DOTween.Sequence();
         seq.Append(timeUp.transform.DOLocalMoveY(m_timeUpPosY[0], 1f))
