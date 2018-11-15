@@ -18,6 +18,8 @@ public class TitleControler : MonoBehaviour
     CanvasGroup m_titleLogo; //タイトルロゴ
     [SerializeField]
     GameObject NewPlayer; //そんまんま
+    [SerializeField]
+    GameObject iku;
 
     [SerializeField] float m_scaleSize = 1.2f;
     [SerializeField] float m_scaleTime;
@@ -85,6 +87,8 @@ public class TitleControler : MonoBehaviour
             {
                 userid = rdr[0];
                 Debug.Log(rdr[0]);
+
+                iku.SetActive(true);
 
             }
             rdr.Close();
