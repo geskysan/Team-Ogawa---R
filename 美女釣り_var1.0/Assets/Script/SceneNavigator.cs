@@ -139,7 +139,6 @@ public class SceneNavigator : SingletonMonoBehaviour<SceneNavigator>
         FadeOutFinished();
 
         //シーン読み込み、変更
-        //SceneManager.LoadScene(_nextSceneName);
         StartCoroutine(LoadData(_nextSceneName));
 
         //シーン名更新

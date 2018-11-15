@@ -110,10 +110,10 @@ public class TitleControler : MonoBehaviour
             {
                 NewPlayer.gameObject.SetActive(true);
             }
-            //if (PlayerPrefs.HasKey("Init"))
-            //{
-            //    SceneNavigator.Instance.Change("menu");
-            //}
+            if (PlayerPrefs.HasKey("Init"))
+            {
+                SceneNavigator.Instance.Change("menu");
+            }
         }
     }
 
