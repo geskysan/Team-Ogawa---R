@@ -78,8 +78,6 @@ public class GirlsManager : MonoBehaviour
     /// <param name="girlTag"></param>
     public void GirlCounter(string girlTag)
     {
-        m_comboTime += 1 * Time.deltaTime;
-
         // コンボ持続中
         if (m_comboTime <= 3)
         {

@@ -78,7 +78,7 @@ public class TitleControler : MonoBehaviour
         {
             Debug.Log("MySQLと接続中...");
             conn.Open();
-
+            iku.SetActive(true);
             string sql = "SELECT MAX( userid ) FROM user;";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader rdr = cmd.ExecuteReader();
@@ -88,7 +88,7 @@ public class TitleControler : MonoBehaviour
                 userid = rdr[0];
                 Debug.Log(rdr[0]);
 
-                iku.SetActive(true);
+                
 
             }
             rdr.Close();

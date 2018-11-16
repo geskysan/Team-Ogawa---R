@@ -11682,7 +11682,7 @@ CanvasGroup:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 692410208}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -12633,7 +12633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_startUpManager: {fileID: 829286275}
   m_resultManager: {fileID: 1811871264}
-  time: 3
+  time: 10
   timeText: {fileID: 1041711938}
   m_color: {r: 1, g: 0, b: 0, a: 1}
   timeUp: {fileID: 203376926}
