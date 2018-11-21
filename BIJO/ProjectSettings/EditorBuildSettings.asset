@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/main.unity
     guid: f031284b6a374004cab49e0bca08036e
+  - enabled: 1
+    path: Assets/Scene/menu-gacha.unity
+    guid: 1f22272c24bde654ba4bf3f42fd85597
