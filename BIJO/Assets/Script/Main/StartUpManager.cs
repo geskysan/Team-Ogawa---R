@@ -28,7 +28,7 @@ public class StartUpManager : MonoBehaviour {
         .AppendInterval(0.5f)
         .OnComplete(() =>
         {
-            m_girlsManager.GirlsStartUp();
+            //m_girlsManager.GirlsStartUp();
             m_OK = true;
             this.gameObject.SetActive(false);
         });
