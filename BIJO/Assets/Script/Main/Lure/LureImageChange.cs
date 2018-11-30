@@ -37,5 +37,12 @@ public class LureImageChange : MonoBehaviour {
                     obj[j].GetComponent<Image>().sprite = m_lureImage[i];
             }
         }
+
+        // ルアーのサイズを取得
+        var objSize = obj[1].GetComponent<RectTransform>().sizeDelta;
+        var collision = obj[1].GetComponent<BoxCollider2D>();
+
+        // BoxColliderのサイズをルアーのサイズに合わせる
+        collision.size = objSize;
     }
 }

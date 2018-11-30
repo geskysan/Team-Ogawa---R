@@ -5,23 +5,53 @@ using UnityEngine;
 public class LureController : MonoBehaviour {
 
     [SerializeField] StartUpManager m_startUpManager;
-    [SerializeField] GameObject m_lureObj;
+    [SerializeField] float m_flickPower;
 
     // タップ座標
     private Vector2 m_tapPos, m_touchStartPos, m_touchEndPos;
-    private Vector2 m_flick;
-    [SerializeField] float m_flickPower;
+    private float m_timeOut = 0.5f;
+
+    // ルアーの初期位置
+    private Vector3 m_StartPos;
+
+    enum PLAYTYPE
+    {
+        Tap,
+        Flick,
+        TestTap,
+        TestFlick
+    };
+
+    [SerializeField] PLAYTYPE m_playType;
 
     private void Start()
     {
-        m_flick = new Vector2(1, 1);
+        m_StartPos = this.gameObject.transform.position;
     }
 
     // Update is called once per frame
     void Update () {
-        if (m_startUpManager.m_OK)
-            //Tap();
-            Flip();
+
+        switch(m_playType)
+        {
+            case PLAYTYPE.Tap:
+                if (m_startUpManager.m_OK)
+                    Tap();
+                break;
+
+            case PLAYTYPE.Flick:
+                if (m_startUpManager.m_OK)
+                    Flick();
+                break;
+
+            case PLAYTYPE.TestTap:
+                Tap();
+                break;
+
+            case PLAYTYPE.TestFlick:
+                Flick();
+                break;
+        }
     }
 
 
@@ -33,36 +63,45 @@ public class LureController : MonoBehaviour {
         if(Input.GetMouseButtonDown(0))
         {
             // 非表示状態なら表示
-            if(m_lureObj.activeSelf == false)
+            if(this.gameObject.activeSelf == false)
             {
-                m_lureObj.SetActive(true);
+                this.gameObject.SetActive(true);
             }
 
             // タップした位置
             m_tapPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
             // Lureの位置をクリック地点に移動
-            m_lureObj.transform.localPosition = new Vector3(m_tapPos.x - (Screen.width / 2), m_tapPos.y - (Screen.height / 2), 0f);
+            this.gameObject.transform.localPosition = new Vector3(m_tapPos.x - (Screen.width / 2), m_tapPos.y - (Screen.height / 2), 0f);
         }
     }
 
     /// <summary>
-    /// フリップした座標の取得
+    /// フリックした座標の取得
     /// </summary>
-    void  Flip()
+    void  Flick()
     {
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        var limitTime = 0f;
+
+        if (Input.GetMouseButtonDown(0))
         {
             m_touchStartPos = new Vector3(Input.mousePosition.x,
                                           Input.mousePosition.y,
                                           Input.mousePosition.z);
+
+            limitTime += Time.deltaTime * m_timeOut;
+            Debug.Log(limitTime);
         }
 
-        if (Input.GetKeyUp(KeyCode.Mouse0))
+        else if (Input.GetMouseButtonUp(0))
         {
             m_touchEndPos = new Vector3(Input.mousePosition.x,
-                                          Input.mousePosition.y,
-                                          Input.mousePosition.z);
+                                        Input.mousePosition.y,
+                                        Input.mousePosition.z);
+
+            // 一定時間以内に指を離すとフリック判定
+            if (limitTime < m_timeOut)
+                GetDirection();
         }
     }
 
@@ -74,32 +113,26 @@ public class LureController : MonoBehaviour {
         float directionX = m_touchEndPos.x - m_touchStartPos.x;
         float directionY = m_touchEndPos.y - m_touchStartPos.y;
 
-        string Direction = "null";
+        string Direction = "";
 
-        if (Mathf.Abs(directionY) < Mathf.Abs(directionX))
+        if (Mathf.Abs(directionX) < Mathf.Abs(directionY))
         {
-            if (30 < directionX)
+            if (10 > directionY)
             {
-                // 右側にフリック
-                Direction = "right";
-            }
-            else if (30 > directionX)
-            {
-                // 左側にフリック
-                Direction = "left";
-            }
-        }
-        else if (Mathf.Abs(directionX) < Mathf.Abs(directionY))
-        {
-            if (30 < directionY)
-            {
-                Direction = "up";
-            }
-            else if (30 > directionY)
-            {
+                // 下側にフリック
                 Direction = "down";
             }
+            else
+            {
+                this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(directionX, directionY) * m_flickPower);
+            }
         }
+
+        else if(Mathf.Abs(directionY) < Mathf.Abs(directionX))
+        {
+            this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(directionX, directionY) * m_flickPower);
+        }
+
         else
         {
             // タッチを検出
@@ -109,25 +142,20 @@ public class LureController : MonoBehaviour {
         // それぞれの方向の処理を入れる
         switch(Direction)
         {
-            case "up":
-                this.gameObject.GetComponent<Rigidbody2D>().AddForce(m_flick * m_flickPower);
-                break;
-
             case "down":
-                this.gameObject.GetComponent<Rigidbody2D>().AddForce(m_flick * m_flickPower);
-                break;
-
-            case "right":
-                this.gameObject.GetComponent<Rigidbody2D>().AddForce(m_flick * m_flickPower);
-                break;
-
-            case "left":
-                this.gameObject.GetComponent<Rigidbody2D>().AddForce(m_flick * m_flickPower);
+                LureReset();
+                Debug.Log("reset");
                 break;
 
             case "touch":
-                this.gameObject.GetComponent<Rigidbody2D>().AddForce(m_flick * m_flickPower);
+                Debug.Log("touch");
                 break;
         }
+    }
+
+    public void LureReset()
+    {
+        this.gameObject.transform.position = m_StartPos;
+        this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 }

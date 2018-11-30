@@ -8,6 +8,7 @@ TagManager:
   - Girl01
   - Girl02
   - Girl03
+  - wall
   layers:
   - Default
   - TransparentFX
