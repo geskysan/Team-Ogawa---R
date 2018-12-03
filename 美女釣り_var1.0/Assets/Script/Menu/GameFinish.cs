@@ -19,16 +19,16 @@ public class GameFinish : MonoBehaviour
 
     public void GoFishing()
     {
-        SceneManager.LoadScene("main");
+        SceneNavigator.Instance.Change("main");
     }
 
     public void GoLure()
     {
-        SceneManager.LoadScene("menu-lure");
+        SceneNavigator.Instance.Change("menu-lure");
     }
 
     public void GoGacha()
     {
-        SceneManager.LoadScene("menu-gacha");
+        SceneNavigator.Instance.Change("menu-gacha");
     }
 }

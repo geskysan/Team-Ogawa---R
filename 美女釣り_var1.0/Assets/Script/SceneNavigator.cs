@@ -2,13 +2,13 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using System.Collections;
 
 /// <summary>
 /// シーンの遷移を実行、管理するクラス
 /// </summary>
 public class SceneNavigator : SingletonMonoBehaviour<SceneNavigator>
 {
-
     //フェード中か否か
     public bool IsFading
     {
@@ -45,6 +45,17 @@ public class SceneNavigator : SingletonMonoBehaviour<SceneNavigator>
     //フェード時間
     public const float FADE_TIME = 0.5f;
     private float _fadeTime = FADE_TIME;
+
+    // 非同期動作で使用するAsyncOperation
+    AsyncOperation async;
+
+    // ロードシーンのUI
+    [SerializeField]
+    GameObject LoadUI;
+
+    // ロードスライダー
+    [SerializeField]
+    Slider slider;
 
     //=================================================================================
     //初期化
@@ -128,7 +139,7 @@ public class SceneNavigator : SingletonMonoBehaviour<SceneNavigator>
         FadeOutFinished();
 
         //シーン読み込み、変更
-        SceneManager.LoadScene(_nextSceneName);
+        StartCoroutine(LoadData(_nextSceneName));
 
         //シーン名更新
         _beforeSceneName = _currentSceneName;
@@ -147,4 +158,23 @@ public class SceneNavigator : SingletonMonoBehaviour<SceneNavigator>
         FadeInFinished();
     }
 
+    /// <summary>
+    /// ロード画面
+    /// </summary>
+    /// <param name="sceneName">読み込むシーン名</param>
+    /// <param name="fadeTime">フェードの時間</param>
+    /// <returns></returns>
+    IEnumerator LoadData(string sceneName)
+    {
+        // シーンの読み込みをする
+        async = SceneManager.LoadSceneAsync(sceneName);
+
+        //　読み込みが終わるまで進捗状況をスライダーの値に反映させる
+        while (!async.isDone)
+        {
+            var progressVal = Mathf.Clamp01(async.progress / 0.9f);
+            //slider.value = progressVal;
+            yield return null;
+        }
+    }
 }
