@@ -20,10 +20,12 @@ public class FishingController : MonoBehaviour {
         {
             // 接触したオブジェクトとルアーを非表示
             Destroy(collision.gameObject);
-            this.gameObject.GetComponent<LureController>().LureReset();
 
-            // 減った分の女の子生成
-            girlsManager.GirlSpawn();
+            // 場にいる美女の数を１つ減らす
+            girlsManager.m_girlsCount--;
+
+            // ルアーの座標をリセット
+            this.gameObject.GetComponent<LureController>().LureReset();
         }
     }
 }
