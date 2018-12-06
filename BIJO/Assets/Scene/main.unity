@@ -12764,7 +12764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_startUpManager: {fileID: 829286275}
   m_resultManager: {fileID: 1811871264}
-  time: 60
+  time: 3
   timeText: {fileID: 1041711938}
   m_color: {r: 1, g: 0, b: 0, a: 1}
   timeUp: {fileID: 203376926}
@@ -14318,6 +14318,7 @@ MonoBehaviour:
   - {fileID: 1421789780}
   - {fileID: 318096296}
   m_girlsNum: 000000000000000000000000
+  serverAddress: http://ik1-340-30132.vs.sakura.ne.jp/newrecode.php
 --- !u!1 &1819660491
 GameObject:
   m_ObjectHideFlags: 0

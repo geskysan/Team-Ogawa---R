@@ -28,17 +28,11 @@ public class StartUpManager : MonoBehaviour {
         .AppendInterval(0.5f)
         .OnComplete(() =>
         {
-            Debug.Log("complete");
             m_OK = true;
             this.gameObject.SetActive(false);
-            Debug.Log("GirlsCall");
             m_girlsManager.GirlsStartUp();
-            Debug.Log("GirlsCallEnd");
         });
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+
 }

@@ -86,9 +86,7 @@ public class GirlsManager : MonoBehaviour
         {
             var random = Random.Range(0, m_Girls.Length);
 
-            Debug.Log("初回生成");
             Instantiate(m_Girls[random], m_spawnPoint[i].transform.position, Quaternion.identity);
-            Debug.Log("生成完了");
 
             m_GirlsObj[i] = m_Girls[random];
 
