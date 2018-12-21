@@ -914,8 +914,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef7ff7651dba6b4c8dd0f4412d83c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: 
+  ID: 0
+  HiScore: 0
   ServerAddress: 153.126.208.136/mysql_maxid.php
   SendAddress: 153.126.208.136/mysql_newplayer.php
+  IDAddress: 153.126.208.136/player_data.php
   InputText_: {fileID: 2091749302}
 --- !u!4 &554694272
 Transform:

@@ -1,0 +1,161 @@
+﻿  back.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: '__useHeader': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2886): note: '__useHeader' の以前の定義を確認してください
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: '__on_failure': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2896): note: '__on_failure' の以前の定義を確認してください
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  bullet.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: '__useHeader': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2886): note: '__useHeader' の以前の定義を確認してください
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: '__on_failure': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2896): note: '__on_failure' の以前の定義を確認してください
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+bullet.cpp(252): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+bullet.cpp(253): warning C4244: '=': 'double' から 'float' への変換です。データが失われる可能性があります。
+  clear.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: '__useHeader': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2886): note: '__useHeader' の以前の定義を確認してください
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: '__on_failure': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2896): note: '__on_failure' の以前の定義を確認してください
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Enemy.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: '__useHeader': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2886): note: '__useHeader' の以前の定義を確認してください
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: '__on_failure': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2896): note: '__on_failure' の以前の定義を確認してください
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+Enemy.cpp(61): warning C4244: '引数': 'int' から 'FLOAT' への変換です。データが失われる可能性があります。
+Enemy.cpp(62): warning C4244: '引数': 'int' から 'FLOAT' への変換です。データが失われる可能性があります。
+Enemy.cpp(63): warning C4244: '引数': 'int' から 'FLOAT' への変換です。データが失われる可能性があります。
+Enemy.cpp(64): warning C4244: '引数': 'int' から 'FLOAT' への変換です。データが失われる可能性があります。
+  EnemyBullet.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: '__useHeader': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2886): note: '__useHeader' の以前の定義を確認してください
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: '__on_failure': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2896): note: '__on_failure' の以前の定義を確認してください
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+EnemyBullet.cpp(96): warning C4101: 'PHit': ローカル変数は 1 度も使われていません。
+  Explosion.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: '__useHeader': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2886): note: '__useHeader' の以前の定義を確認してください
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: '__on_failure': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2896): note: '__on_failure' の以前の定義を確認してください
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+Explosion.cpp(196): warning C4244: '引数': 'int' から 'FLOAT' への変換です。データが失われる可能性があります。
+Explosion.cpp(197): warning C4244: '引数': 'int' から 'FLOAT' への変換です。データが失われる可能性があります。
+  Fade.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: '__useHeader': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2886): note: '__useHeader' の以前の定義を確認してください
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: '__on_failure': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2896): note: '__on_failure' の以前の定義を確認してください
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+Fade.cpp(75): warning C4305: '-=': 'double' から 'FLOAT' へ切り詰めます。
+Fade.cpp(82): warning C4305: '+=': 'double' から 'FLOAT' へ切り詰めます。
+  game.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: '__useHeader': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2886): note: '__useHeader' の以前の定義を確認してください
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: '__on_failure': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2896): note: '__on_failure' の以前の定義を確認してください
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  input.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: '__useHeader': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2886): note: '__useHeader' の以前の定義を確認してください
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: '__on_failure': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2896): note: '__on_failure' の以前の定義を確認してください
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  life.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: '__useHeader': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2886): note: '__useHeader' の以前の定義を確認してください
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: '__on_failure': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2896): note: '__on_failure' の以前の定義を確認してください
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+life.cpp(46): warning C4244: '引数': 'int' から 'FLOAT' への変換です。データが失われる可能性があります。
+  main.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: '__useHeader': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2886): note: '__useHeader' の以前の定義を確認してください
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: '__on_failure': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2896): note: '__on_failure' の以前の定義を確認してください
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  number.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: '__useHeader': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2886): note: '__useHeader' の以前の定義を確認してください
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: '__on_failure': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2896): note: '__on_failure' の以前の定義を確認してください
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+number.cpp(56): warning C4244: '引数': 'int' から 'FLOAT' への変換です。データが失われる可能性があります。
+number.cpp(89): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+number.cpp(89): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
+number.cpp(90): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+number.cpp(193): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+number.cpp(193): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
+number.cpp(194): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+  polygon.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: '__useHeader': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2886): note: '__useHeader' の以前の定義を確認してください
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: '__on_failure': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2896): note: '__on_failure' の以前の定義を確認してください
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+polygon.cpp(113): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
+polygon.cpp(114): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
+polygon.cpp(128): warning C4805: '==': 演算中の 'int' 型と 'bool' 型の混用は安全ではありません
+polygon.cpp(143): warning C4305: '+=': 'double' から 'float' へ切り詰めます。
+polygon.cpp(146): warning C4305: '-=': 'double' から 'float' へ切り詰めます。
+  ranking.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: '__useHeader': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2886): note: '__useHeader' の以前の定義を確認してください
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: '__on_failure': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2896): note: '__on_failure' の以前の定義を確認してください
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  RankingScore.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: '__useHeader': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2886): note: '__useHeader' の以前の定義を確認してください
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: '__on_failure': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2896): note: '__on_failure' の以前の定義を確認してください
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+RankingScore.cpp(40): warning C4244: '引数': 'int' から 'FLOAT' への変換です。データが失われる可能性があります。
+RankingScore.cpp(196): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+RankingScore.cpp(196): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
+RankingScore.cpp(197): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+  result.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: '__useHeader': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2886): note: '__useHeader' の以前の定義を確認してください
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: '__on_failure': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2896): note: '__on_failure' の以前の定義を確認してください
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  sound.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: '__useHeader': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2886): note: '__useHeader' の以前の定義を確認してください
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: '__on_failure': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2896): note: '__on_failure' の以前の定義を確認してください
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  time.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: '__useHeader': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2886): note: '__useHeader' の以前の定義を確認してください
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: '__on_failure': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2896): note: '__on_failure' の以前の定義を確認してください
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+time.cpp(58): warning C4244: '引数': 'int' から 'FLOAT' への変換です。データが失われる可能性があります。
+time.cpp(106): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+time.cpp(106): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
+time.cpp(107): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+time.cpp(217): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+time.cpp(217): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
+time.cpp(218): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+  title.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: '__useHeader': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2886): note: '__useHeader' の以前の定義を確認してください
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: '__on_failure': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2896): note: '__on_failure' の以前の定義を確認してください
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  tutorial.cpp
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\sal_supp.h(57): warning C4005: '__useHeader': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2886): note: '__useHeader' の以前の定義を確認してください
+c:\program files (x86)\microsoft sdks\windows\v7.1a\include\specstrings_supp.h(77): warning C4005: '__on_failure': マクロが再定義されました。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\sal.h(2896): note: '__on_failure' の以前の定義を確認してください
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  コード生成しています。
+  160 of 160 functions (100.0%) were compiled, the rest were copied from previous compilation.
+    10 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  コード生成が終了しました。
+  とっとこ走るよハム太郎.vcxproj -> C:\Users\S-JoBi604\Desktop\とっとこ走るよハム太郎\Release\とっとこ走るよハム太郎.exe

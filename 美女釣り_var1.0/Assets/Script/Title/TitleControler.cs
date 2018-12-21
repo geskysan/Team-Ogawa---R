@@ -92,7 +92,7 @@ public class TitleControler : MonoBehaviour {
             while (rdr.Read())
             {
                 userid = rdr[0];
-                Debug.Log(rdr[0]);
+               // Debug.Log(rdr[0]);
             
             }
             rdr.Close();
