@@ -914,13 +914,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef7ff7651dba6b4c8dd0f4412d83c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  ID: 0
+  UserName: 
+  UserId: 0
   HiScore: 0
   ServerAddress: 153.126.208.136/mysql_maxid.php
   SendAddress: 153.126.208.136/mysql_newplayer.php
   IDAddress: 153.126.208.136/player_data.php
+  id: 
   InputText_: {fileID: 2091749302}
+  NameField: {fileID: 1905880538}
+  SelectButton: {fileID: 2078557717}
 --- !u!4 &554694272
 Transform:
   m_ObjectHideFlags: 0
@@ -5208,12 +5211,12 @@ GameObject:
   - component: {fileID: 1905880541}
   - component: {fileID: 1905880540}
   m_Layer: 5
-  m_Name: InputField
+  m_Name: NameField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1905880539
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5342,12 +5345,12 @@ GameObject:
   - component: {fileID: 2078557720}
   - component: {fileID: 2078557719}
   m_Layer: 5
-  m_Name: Button
+  m_Name: 'Select Button '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2078557718
 RectTransform:
   m_ObjectHideFlags: 0

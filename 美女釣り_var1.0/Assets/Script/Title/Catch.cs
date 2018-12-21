@@ -13,14 +13,26 @@ public class Catch : MonoBehaviour
     public string ServerAddress = "153.126.208.136/mysql_maxid.php";        //USERID PHP(取得)
     public string SendAddress = "153.126.208.136/mysql_newplayer.php";      //USERNAME PHP(送信)
     public string IDAddress = "153.126.208.136/player_data.php";            //PLAYERDATA PHP(取得)
+    public string id;
 
     public Text InputText_;     //USERNAME用
-    private string id;  
+    public GameObject NameField;
+    public GameObject SelectButton;
 
     void Start()
     {
         StartCoroutine("Access");   //Access関数の呼び出し
         StartCoroutine("Id");       //Id関数の呼び出し
+        if (PlayerPrefs.HasKey("UserID"))
+        {
+            NameField.SetActive(false);
+            SelectButton.SetActive(false);
+        }
+        else
+        {
+            NameField.SetActive(true);
+            SelectButton.SetActive(true);
+        }
     }
 
     //ボタン押したとき
@@ -29,6 +41,7 @@ public class Catch : MonoBehaviour
         StartCoroutine("User");     //User関数の呼び出し
         StartCoroutine("Access");   //Access関数の呼び出し
         StartCoroutine("Id");       //Id関数の呼び出し
+        Debug.Log("ユーザー登録中");
     }
 
     private IEnumerator User()
