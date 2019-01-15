@@ -10,6 +10,9 @@ public class Catch : MonoBehaviour
     public int UserId;       //USER ID
     public int HiScore;      //PLAYER HISCORE
 
+    private bool NameFlag;
+
+
     public string ServerAddress = "153.126.208.136/mysql_maxid.php";        //USERID PHP(取得)
     public string SendAddress = "153.126.208.136/mysql_newplayer.php";      //USERNAME PHP(送信)
     public string IDAddress = "153.126.208.136/player_data.php";            //PLAYERDATA PHP(取得)
@@ -23,15 +26,27 @@ public class Catch : MonoBehaviour
     {
         StartCoroutine("Access");   //Access関数の呼び出し
         StartCoroutine("Id");       //Id関数の呼び出し
-        if (PlayerPrefs.HasKey("UserID"))
+        NameFlag = false;
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
         {
-            NameField.SetActive(false);
-            SelectButton.SetActive(false);
+            if (!NameFlag == true)
+            {
+                NameField.SetActive(true);
+                SelectButton.SetActive(true);
+                StartCoroutine("Access");   //Access関数の呼び出し
+                StartCoroutine("Id");       //Id関数の呼び出し
+            }
         }
-        else
+        
+        if(NameFlag == true)
         {
-            NameField.SetActive(true);
-            SelectButton.SetActive(true);
+            SceneNavigator.Instance.Change("menu");
+            StartCoroutine("Access");   //Access関数の呼び出し
+            StartCoroutine("Id");       //Id関数の呼び出し
         }
     }
 
@@ -41,7 +56,7 @@ public class Catch : MonoBehaviour
         StartCoroutine("User");     //User関数の呼び出し
         StartCoroutine("Access");   //Access関数の呼び出し
         StartCoroutine("Id");       //Id関数の呼び出し
-        Debug.Log("ユーザー登録中");
+        NameFlag = true;
     }
 
     private IEnumerator User()
@@ -141,7 +156,7 @@ public class Catch : MonoBehaviour
             string UserData = www.text;
             string[] Data = UserData.Split(',');
             UserName = Data[0];
-            HiScore = int.Parse(Data[1]);
+            //HiScore = int.Parse(Data[1]);
         }
     }
 

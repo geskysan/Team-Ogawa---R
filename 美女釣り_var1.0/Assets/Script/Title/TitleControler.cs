@@ -82,7 +82,7 @@ public class TitleControler : MonoBehaviour {
         try
         {
            
-            Debug.Log("MySQLと接続中...");
+            //Debug.Log("MySQLと接続中...");
             conn.Open();
             ikuyo.gameObject.SetActive(true);
             string sql = "SELECT MAX( userid ) FROM user;";
@@ -100,10 +100,10 @@ public class TitleControler : MonoBehaviour {
         }
         catch (Exception ex)
         {
-            Debug.Log(ex.ToString());
+            //Debug.Log(ex.ToString());
         }
         conn.Close();
-        Debug.Log("接続を終了しました");
+        //Debug.Log("接続を終了しました");
 
     }
 

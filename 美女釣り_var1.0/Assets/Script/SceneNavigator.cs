@@ -120,7 +120,7 @@ public class SceneNavigator : SingletonMonoBehaviour<SceneNavigator>
     {
         if (IsFading)
         {
-            Debug.LogError("フェード中です！");
+            //Debug.LogError("フェード中です！");
             return;
         }
 
