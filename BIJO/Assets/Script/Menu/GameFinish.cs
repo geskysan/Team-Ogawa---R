@@ -20,6 +20,14 @@ public class GameFinish : MonoBehaviour
         SoundScript.Instance.PlayBGM(SoundNameData.BGM_MENU);
     }
 
+    private void Update()
+    {
+        if(_tapCount == TutorialSS.Length)
+        {
+            m_Tutorial.SetActive(false);
+        }
+    }
+
     public void GoFishing()
     {
         SceneNavigator.Instance.Change("main");
@@ -39,17 +47,10 @@ public class GameFinish : MonoBehaviour
     }
 
     public void NextButton()
-    { 
-        if (_tapCount == 0)
-        {
-            m_imagePanel.GetComponent<Image>().sprite = TutorialSS[1];
-            _tapCount++;
-            Debug.Log(_tapCount);
-        }
+    {
+        _tapCount++;
 
-        else if (_tapCount == 1)
-        {
-            m_Tutorial.SetActive(false);
-        }
+        if (_tapCount != TutorialSS.Length)
+            m_imagePanel.GetComponent<Image>().sprite = TutorialSS[_tapCount];
     }
 }
