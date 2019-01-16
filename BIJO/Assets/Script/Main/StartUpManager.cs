@@ -9,41 +9,20 @@ public class StartUpManager : MonoBehaviour {
     [SerializeField] GirlsManager m_girlsManager;
 
     [SerializeField] CanvasGroup m_ready, m_go;
-    [SerializeField] float m_readyTime = 3f;
-
-    public Text m_stageNameText;
-    public Sprite m_background; 
+    [SerializeField] float m_readyTime = 2f;
 
     public bool m_OK = false;
 
 	// Use this for initialization
 	void Start () {
-
-	}
-
-    void StageName()
-    {
-        Sequence seq = DOTween.Sequence();
-
-        seq.OnStart(() =>
-        {
-
-        })
-
-        .OnComplete(() =>
-        {
-
-        });
-    }
-
-    void StartUp()
-    {
         Sequence seq = DOTween.Sequence();
         seq.OnStart(() =>
         {
             // Ready,Goを透明にする
             m_ready.alpha = 0f;
             m_go.alpha = 0f;
+
+            SoundScript.Instance.PlaySE(SoundNameData.SE_COUNTDOWN);
         })
         // readyをフェードの出現
         .Append(m_ready.DOFade(1f, 1f))
@@ -54,13 +33,15 @@ public class StartUpManager : MonoBehaviour {
         // readyが消えるのと同時にGO表示
         .Join(m_go.DOFade(1f, 0.1f))
         // GOを少しずつ大きく
-        .Join(m_go.transform.DOScale(1.5f, 1f))
+        .Join(m_go.transform.DOScale(1.5f, 0.75f))
         .AppendInterval(0.5f)
         .OnComplete(() =>
         {
             m_OK = true;
             this.gameObject.SetActive(false);
             m_girlsManager.GirlsStartUp();
+
+            SoundScript.Instance.PlayBGM(SoundNameData.BGM_MAIN);
         });
     }
 }

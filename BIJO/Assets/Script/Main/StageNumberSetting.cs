@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class StageNumberSetting : MonoBehaviour {
 
-    [SerializeField] StartUpManager m_startUpmanager;
-
     public enum STAGE
     {
         stage_1,
@@ -15,9 +13,8 @@ public class StageNumberSetting : MonoBehaviour {
         stage_5,
         stage_6,
         stage_7,
+        stage_max
     }
-    [SerializeField] string[] m_stageName;
-    [SerializeField] Text m_staeNameText;
 
     enum SELECTTYPE
     {
@@ -35,26 +32,44 @@ public class StageNumberSetting : MonoBehaviour {
     ParticleSystem[] particle;
 
     private void Start()
-    {
-        for (int i = 0; i < m_stageImage.Length; i++)
+    { 
+        switch(m_SelectType)
         {
-            if (m_stage == (STAGE)i)
-            {
-                // ステージの背景を設定
-                m_background.GetComponent<Image>().sprite = m_stageImage[i];
-                m_startUpmanager.m_background = m_stageImage[i];
-
-                // ステージ名を設定
-
-
-                if(particle[i] != null)
+            case SELECTTYPE.Order:
+                for (int i = 0; i < m_stageImage.Length; i++)
                 {
-                    Instantiate(particle[i]);
-                    particle[i].Play();
-                }
+                    if (m_stage == (STAGE)i)
+                    {
+                        // ステージの背景を設定
+                        m_background.GetComponent<Image>().sprite = m_stageImage[i];
 
+                        // パーティクルを設定
+                        if (particle[i] != null)
+                        {
+                            Instantiate(particle[i]);
+                            particle[i].Play();
+                        }
+
+                        break;
+                    }
+                }
                 break;
-            }
+
+            case SELECTTYPE.Random:
+                var random = Random.Range(0, (int)STAGE.stage_max);
+
+                // ステージの背景を設定
+                m_background.GetComponent<Image>().sprite = m_stageImage[random];
+
+                // パーティクルを設定
+                if (particle[random] != null)
+                {
+                    Instantiate(particle[random]);
+                    particle[random].Play();
+                }
+                break;
         }
+
+
     }
 }

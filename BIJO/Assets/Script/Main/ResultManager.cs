@@ -16,6 +16,8 @@ public class ResultManager : MonoBehaviour {
 
     private void Awake()
     {
+
+
         //ハイスコアと比較して現在のスコアの方が上ならば送信する
 
         StartCoroutine(Access());
@@ -23,6 +25,9 @@ public class ResultManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
+        SoundScript.Instance.PlaySE(SoundNameData.SE_RESULT);
+
         // スコアを取得
         m_score = (int)scoreManager.m_Score;
         m_Text[0].text = m_score.ToString();
@@ -102,5 +107,13 @@ public class ResultManager : MonoBehaviour {
             }
         }
         yield return null;
+    }
+
+    public void GirlsSet()
+    {
+        for (int i = 0; i < m_girlsNum.Length; i++)
+        {
+            m_Text[i + 1].text = girlsManager.m_GirlCount[i].ToString();
+        }
     }
 }

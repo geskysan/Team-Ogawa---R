@@ -8,6 +8,7 @@ public class TimeManager : MonoBehaviour {
 
     [SerializeField] StartUpManager m_startUpManager;
     [SerializeField] GameObject m_resultManager;
+    [SerializeField] ResultManager m_result;
 
     [SerializeField] float time = 60f;
     [SerializeField] Text timeText;
@@ -64,7 +65,10 @@ public class TimeManager : MonoBehaviour {
             {
                 m_bTimeUp = true;
                 m_resultManager.SetActive(true);
+                m_result.GirlsSet();
             });
+
+        SoundScript.Instance.PlaySE(SoundNameData.SE_TUMEUP);
 
     }
 }

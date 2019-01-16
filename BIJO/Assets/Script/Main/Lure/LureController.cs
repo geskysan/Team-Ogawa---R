@@ -151,6 +151,8 @@ public class LureController : MonoBehaviour {
                 Debug.Log("touch");
                 break;
         }
+
+        SoundScript.Instance.PlaySE(SoundNameData.SE_FLICK);
     }
 
     public void LureReset()
