@@ -21,7 +21,7 @@ public class StartUpManager : MonoBehaviour {
             // Ready,Goを透明にする
             m_ready.alpha = 0f;
             m_go.alpha = 0f;
-
+            SoundScript.Instance.FadeOutBGM();
             SoundScript.Instance.PlaySE(SoundNameData.SE_COUNTDOWN);
         })
         // readyをフェードの出現

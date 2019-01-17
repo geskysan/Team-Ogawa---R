@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,13 +8,17 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using DG.Tweening;
 
-public class TitleControler : MonoBehaviour
-{
+using MySql.Data;
+using MySql.Data.MySqlClient;
+
+public class TitleControler : MonoBehaviour {
 
     [SerializeField]
     CanvasGroup m_tapLogo; //ロゴ
     [SerializeField]
     CanvasGroup m_titleLogo; //タイトルロゴ
+    [SerializeField]
+    GameObject NewPlayer; //そんまんま
 
     [SerializeField] float m_scaleSize = 1.2f;
     [SerializeField] float m_scaleTime;
@@ -20,6 +26,15 @@ public class TitleControler : MonoBehaviour
 
     [SerializeField] private float DurationSeconds;
     [SerializeField] private Ease EaseType;
+
+    [SerializeField]
+    InputField inputField;
+    [SerializeField]
+    Text Nameinput;
+    [SerializeField]
+    GameObject tapsiteyo; //tap
+    [SerializeField]
+    Text ikuyo;
 
     // Use this for initialization
     void Start()
@@ -38,20 +53,12 @@ public class TitleControler : MonoBehaviour
         .Join(m_titleLogo.transform.DORotate(new Vector3(0.0f, 0.0f, -10.0f), 1.5f))
         .OnComplete(() =>
         {
-            m_titleLogo.transform.DORotate(new Vector3(0.0f, 0.0f, 10.0f), 1.5f).SetEase(EaseType).SetLoops(-1, LoopType.Yoyo);
+        m_titleLogo.transform.DORotate(new Vector3(0.0f, 0.0f, 10.0f), 1.5f).SetLoops(-1, LoopType.Yoyo);
 
         });
 
         SoundScript.Instance.PlayBGM(SoundNameData.BGM_TITLE);
-        m_tapLogo.DOFade(0.5f, this.DurationSeconds).SetEase(EaseType).SetLoops(-1, LoopType.Yoyo);
-    }
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        m_tapLogo.DOFade(0.5f, this.DurationSeconds).SetEase(this.EaseType).SetLoops(-1, LoopType.Yoyo);
     }
 }
 

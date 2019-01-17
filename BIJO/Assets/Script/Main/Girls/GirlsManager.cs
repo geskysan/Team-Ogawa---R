@@ -61,26 +61,7 @@ public class GirlsManager : MonoBehaviour
     /// 女の子たちの初回生成
     /// </summary>
     public void GirlsStartUp()
-    {
-
-        //// ランダムな方向に力を与える
-        //float random_X, random_Y;
-        //random_X = Random.Range(0f, 1f);
-        //random_Y = Random.Range(0f, 1f);
-        //var randomForce = new Vector2(random_X, random_Y);
-
-        //this.gameObject.GetComponent<Rigidbody2D>().AddForce(randomForce, ForceMode2D.Force);
-
-        //// ランダムな種類の美女生成
-        //for (int i = 0; i < maxGirl; i++)
-        //{
-        //    var random = 0;
-        //    random = Random.Range(0, m_Girls.Length);
-
-        //    Instantiate(m_Girls[random]);
-        //}
-
- 
+    { 
         // ランダムな種類の美女生成
         for (int i = 0; i < m_spawnPoint.Length; i++)
         {

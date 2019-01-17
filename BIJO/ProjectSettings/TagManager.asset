@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - wall
+  - Girl03
+  - Girl02
+  - Girl01
   layers:
   - Default
   - TransparentFX
@@ -13,7 +17,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Girls
   - 
   - 
   - 

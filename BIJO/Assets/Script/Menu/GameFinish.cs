@@ -18,6 +18,9 @@ public class GameFinish : MonoBehaviour
     private void Start()
     {
         SoundScript.Instance.PlayBGM(SoundNameData.BGM_MENU);
+
+        Debug.Log(Catch.UserName);
+
     }
 
     private void Update()

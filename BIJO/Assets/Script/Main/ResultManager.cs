@@ -7,6 +7,7 @@ public class ResultManager : MonoBehaviour {
 
     [SerializeField] ScoreManager scoreManager;
     [SerializeField] GirlsManager girlsManager;
+    [SerializeField] NewScore newScore;
 
     [SerializeField] Text[] m_Text;
     [SerializeField] int[] m_girlsNum;
@@ -16,21 +17,25 @@ public class ResultManager : MonoBehaviour {
 
     private void Awake()
     {
-
+        // スコアを取得
+        m_score = (int)scoreManager.m_Score;
+        m_Text[0].text = m_score.ToString();
 
         //ハイスコアと比較して現在のスコアの方が上ならば送信する
+        if (PlayerData._myScore < m_score)
+        {
+            StartCoroutine(Access());
+            newScore.TM();
+        }
 
-        StartCoroutine(Access());
+
+        Debug.Log(m_score);
     }
 
     // Use this for initialization
     void Start () {
 
         SoundScript.Instance.PlaySE(SoundNameData.SE_RESULT);
-
-        // スコアを取得
-        m_score = (int)scoreManager.m_Score;
-        m_Text[0].text = m_score.ToString();
         
         for(int i=0;i<m_girlsNum.Length;i++)
         {
@@ -53,7 +58,7 @@ public class ResultManager : MonoBehaviour {
         Dictionary<string, int> dic = new Dictionary<string, int>();
 
         // phpにIDを送る(今はテストでID：１)
-        dic.Add("id", 1);
+        dic.Add("id", Catch.MyID);
         dic.Add("score", m_score);
 
         // phpにIDとスコアを送信

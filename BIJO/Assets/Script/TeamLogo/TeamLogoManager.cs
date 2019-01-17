@@ -13,7 +13,7 @@ public class TeamLogoManager : MonoBehaviour {
     // Use this for initialization
     void Start() {
 
-        //SoundScript.Instance.PlaySE(SoundNameData.SE_OGAWA, 0.7f);
+        SoundScript.Instance.PlaySE(SoundNameData.SE_OGAWA, 0.7f);
 
         Sequence seq = DOTween.Sequence();
 
