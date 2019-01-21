@@ -111,17 +111,17 @@ public class TitleControler : MonoBehaviour {
 
 // Update is called once per frame
 void Update () {
-        if(Input.GetMouseButtonDown(0))
-        {
-            if (!PlayerPrefs.HasKey("Init"))
-            {
-                NewPlayer.gameObject.SetActive(true);
-            }
-            if (PlayerPrefs.HasKey("Init"))
-            {
-                //SceneNavigator.Instance.Change("menu");
-            }
-        }
+        //if(Input.GetMouseButtonDown(0))
+        //{
+        //    if (!PlayerPrefs.HasKey("Init"))
+        //    {
+        //        NewPlayer.gameObject.SetActive(true);
+        //    }
+        //    if (PlayerPrefs.HasKey("Init"))
+        //    {
+        //        //SceneNavigator.Instance.Change("menu");
+        //    }
+        //}
     }
 
     //ユーザー作るときの奴

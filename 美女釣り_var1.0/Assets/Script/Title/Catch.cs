@@ -6,47 +6,52 @@ using UnityEngine.UI;
 public class Catch : MonoBehaviour
 {
 
-    public string UserName;  //PLAYER NAME
-    public int UserId;       //USER ID
-    public int HiScore;      //PLAYER HISCORE
+    public static string UserName;  //PLAYER NAME
+    public static int UserId;       //USER ID
+    public static int HiScore;      //PLAYER HISCORE
 
-    private bool NameFlag;
-
-
-    public string ServerAddress = "153.126.208.136/mysql_maxid.php";        //USERID PHP(取得)
-    public string SendAddress = "153.126.208.136/mysql_newplayer.php";      //USERNAME PHP(送信)
+    public string ServerAddress = "153.126.208.136/mysql_maxid.php";        //USERID PHP(取得) 
+    public string SendAddress = "153.126.208.136/mysql_newplayer.php";      //USERNAME PHP(送信) 
     public string IDAddress = "153.126.208.136/player_data.php";            //PLAYERDATA PHP(取得)
-    public string id;
+    public string id;   //Serverにidを送る用の変数
 
     public Text InputText_;     //USERNAME用
-    public GameObject NameField;
-    public GameObject SelectButton;
+    public GameObject NameField;    //名前を登録する場所
+    public GameObject SelectButton; //決定ボタン
+
+    int Createuser;
+    int MyID;   //IDの変数
 
     void Start()
     {
         StartCoroutine("Access");   //Access関数の呼び出し
-        StartCoroutine("Id");       //Id関数の呼び出し
-        NameFlag = false;
+        Createuser = PlayerPrefs.GetInt("CreateUser315");    //登録されているか取得する
+        MyID = PlayerPrefs.GetInt("myId");  //"myId"に保存されている数を取得する
     }
 
     void Update()
     {
+        MyID = PlayerPrefs.GetInt("myId");  //"myId"に保存されている数を取得する
+        //デバッグ用
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Debug.Log(MyID);
+        }
+
+        //マウスがクリックされたとき
         if (Input.GetMouseButtonDown(0))
         {
-            if (!NameFlag == true)
+            //ゼロなら
+            if (Createuser == 0)
             {
-                NameField.SetActive(true);
-                SelectButton.SetActive(true);
-                StartCoroutine("Access");   //Access関数の呼び出し
-                StartCoroutine("Id");       //Id関数の呼び出し
+                NameField.SetActive(true);      //表示する
+                SelectButton.SetActive(true);   //表示する
             }
-        }
-        
-        if(NameFlag == true)
-        {
-            SceneNavigator.Instance.Change("menu");
-            StartCoroutine("Access");   //Access関数の呼び出し
-            StartCoroutine("Id");       //Id関数の呼び出し
+            if (Createuser == 1)
+            {
+                StartCoroutine("Id");       //Id関数の呼び出し
+                SceneNavigator.Instance.Change("menu");   //"menu"Sceneへ移動
+            }
         }
     }
 
@@ -55,32 +60,36 @@ public class Catch : MonoBehaviour
     {
         StartCoroutine("User");     //User関数の呼び出し
         StartCoroutine("Access");   //Access関数の呼び出し
-        StartCoroutine("Id");       //Id関数の呼び出し
-        NameFlag = true;
+        PlayerPrefs.SetInt("CreateUser315", 1);//引数に数を持たせる
+        SceneNavigator.Instance.Change("menu");
     }
 
+    //ユーザー登録
     private IEnumerator User()
     {
         Dictionary<string, string> dic = new Dictionary<string, string>();  //コンストラクタ
         dic.Add("name", InputText_.GetComponent<Text>().text); //インプットフィールドからnameの取得
         StartCoroutine(Post(SendAddress, dic)); //SendAddressに送信するコルーチンを実行
+        PlayerPrefs.SetInt("myId", UserId);//引数にUserIdを持たせる
         yield return 0;
 
     }
 
+    //ユーザーネームとハイスコア取得
     private IEnumerator Id()
     {
         Dictionary<string, string> dic = new Dictionary<string, string>();  //コンストラクタ
-        id = (UserId).ToString();   //String型に変換して代入
+        id = (MyID).ToString();   //String型に変換して代入
         dic.Add("id", id);  //idを送信
         StartCoroutine(UserData(IDAddress, dic)); //SendAddressに送信するコルーチンを実行
         yield return 0;
     }
 
+    //MAX_IDを取得
     private IEnumerator Access()
     {
         Dictionary<string, string> dic = new Dictionary<string, string>();  //コンストラクタ
-        StartCoroutine(PostId(ServerAddress, dic));  //ServerAddress
+        StartCoroutine(Post(ServerAddress, dic));  //ServerAddress
         yield return 0;
     }
 
@@ -107,31 +116,6 @@ public class Catch : MonoBehaviour
         }
     }
 
-    private IEnumerator PostId(string url, Dictionary<string, string> post)
-    {
-        WWWForm form = new WWWForm();
-
-        foreach (KeyValuePair<string, string> post_arg in post)
-        {
-            form.AddField(post_arg.Key, post_arg.Value);
-        }
-        WWW www = new WWW(url, form);
-
-        yield return StartCoroutine(CheckTimeOut(www, 3f)); //TimeOutSecond = 3s;
-
-        if (www.error != null)
-        {
-            Debug.Log("HttpPost NG: " + www.error);
-            //そもそも接続ができていないとき
-
-        }
-        else if (www.isDone)
-        {
-            //送られてきたデータをテキストに反映
-            UserId = int.Parse(www.text);
-        }
-    }
-
     private IEnumerator UserData(string url, Dictionary<string, string> post)
     {
         WWWForm form = new WWWForm();
@@ -153,10 +137,11 @@ public class Catch : MonoBehaviour
         else if (www.isDone)
         {
             Debug.Log("取ってきたやーつ:" + www.text);
+
             string UserData = www.text;
             string[] Data = UserData.Split(',');
             UserName = Data[0];
-            //HiScore = int.Parse(Data[1]);
+            HiScore = int.Parse(Data[1]);
         }
     }
 
