@@ -41,6 +41,11 @@ public class GameFinish : MonoBehaviour
         SceneNavigator.Instance.Change("credit");
     }
 
+    public void GoRanking()
+    {
+        SceneNavigator.Instance.Change("ranking");
+    }
+
     public void GoTutorial()
     {
         _tapCount = 0;
